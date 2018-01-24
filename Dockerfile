@@ -34,7 +34,7 @@ RUN curl -LO http://wordpress.org/latest.tar.gz                         &&\
     tar xvzf /latest.tar.gz -C /var/www/html --strip-components=1       &&\
     rm /latest.tar.gz 
 
-EXPOSE 80
+EXPOSE 80 443
 
 RUN groupadd ec2-user -g 500
 
