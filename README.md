@@ -4,6 +4,8 @@ This is a Centos 7 based images optimized to work with AWS.
 
 It has the latest Nginx, PHP7 and Letsencrypt certbot binaries installed.
 
+We're assuming you are running this under the ec2-user, thus all the config files have been updated so that this user is created and the services are run as that user.
+
 Example setup:
 
 # Database setup
