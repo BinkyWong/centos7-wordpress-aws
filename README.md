@@ -39,10 +39,15 @@ When configuring your database, select "db" as the host and the password supplie
 # More advanced setup mapping root html, nginx and letsencrypt configuration
 
   docker run -d -p 80:80 -p 443:443 --link wordpressdb:db --restart=always \\
+
   -v /home/ec2-user/websites/mysite/www/html:/var/www/html \\
+
   -v /home/ec2-user/websites/mysite/etc/nginx:/etc/nginx \\
+
   -v /home/ec2-user/websites/mysite/etc/letsencrypt:/etc/letsencrypt \\
+
   --name wordpress \\
+
   binkybong/centos7-wordpress-aws
 
 # Getting a shell
