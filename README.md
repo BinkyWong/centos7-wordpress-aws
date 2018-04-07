@@ -32,7 +32,7 @@ If you need to, you can setup phpMyAdmin to connect to it:
 
 When configuring your database, select "db" as the host and the password supplied in the database setup.
 
-# Setting up a cront job to autorenew the SSL cert
+# Setting up a cron job to autorenew the SSL cert
 
   0 0 1 */2 * docker exec -it nginx certbot renew
 
