@@ -24,7 +24,7 @@ RUN easy_install pip
 
 RUN pip install supervisor 
 
-RUN yum install -y mod_php71w php71w-cli php71w-common php71w-gd php71w-mbstring php71w-mcrypt php71w-mysqlnd php71w-xml php71w-fpm nginx openssl net-tools wget git curl certbot-nginx postfix nmap vim mailx telnet bind-utils iftop iptraf tcpdump htop iperf
+RUN yum install -y mod_php71w php71w-cli php71w-common php71w-gd php71w-mbstring php71w-mcrypt php71w-mysqlnd php71w-xml php71w-fpm nginx openssl net-tools wget git curl certbot-nginx postfix nmap vim mailx telnet bind-utils iftop iptraf tcpdump htop iperf gcc
 
 RUN mkdir /var/www/html -p
 
@@ -34,9 +34,9 @@ RUN curl -LO http://wordpress.org/latest.tar.gz                         &&\
 
 EXPOSE 80 443
 
-RUN groupadd ec2-user -g 500
+RUN groupadd ec2-user -g 1000
 
-RUN useradd -u 500 ec2-user -g ec2-user
+RUN useradd -u 1000 ec2-user -g ec2-user
 
 RUN usermod -aG nginx ec2-user
 
@@ -44,7 +44,7 @@ RUN chown -R ec2-user: /var/www/html
 
 RUN chown -R ec2-user: /var/cache/nginx
 
-RUN yum install -y gcc
+RUN echo 'daemon off;' >> /etc/nginx/nginx.conf
 
 # Executing supervisord
 CMD ["supervisord", "-n"]
