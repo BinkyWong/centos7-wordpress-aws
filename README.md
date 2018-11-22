@@ -1,5 +1,9 @@
 # centos7-wordpress AWS Edition!
 
+Now with PageSpeed!
+
+https://developers.google.com/speed/pagespeed/module/
+
 This is a Centos 7 based image optimized to work with AWS.
 
 It has the latest Nginx, PHP7 and Letsencrypt certbot binaries installed. It has the latest version of wordpress at the time of build. You can of course install your down version.
