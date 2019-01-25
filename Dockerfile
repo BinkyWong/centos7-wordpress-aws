@@ -9,6 +9,8 @@ ADD /contents /
 
 RUN yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
 
+RUN yum -y install https://extras.getpagespeed.com/release-el7-latest.rpm
+
 RUN yum -y install epel-release
 
 RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
@@ -23,7 +25,12 @@ RUN easy_install pip
 
 RUN pip install supervisor 
 
-RUN yum install -y mod_php71w php71w-cli php71w-common php71w-gd php71w-mbstring php71w-mcrypt php71w-mysqlnd php71w-xml php71w-fpm nginx1w-module-pagespeed openssl net-tools wget git curl certbot-nginx postfix nmap vim mailx telnet bind-utils iftop iptraf tcpdump htop iperf gcc nginx1w-module-http-image-filter
+
+RUN yum -y install nginx nginx-module-nps
+
+#RUN yum install -y mod_php71w php71w-cli php71w-common php71w-gd php71w-mbstring php71w-mcrypt php71w-mysqlnd php71w-xml php71w-fpm nginx1w-module-pagespeed openssl net-tools wget git curl certbot-nginx postfix nmap vim mailx telnet bind-utils iftop iptraf tcpdump htop iperf gcc nginx1w-module-http-image-filter
+
+RUN yum install -y mod_php71w php71w-cli php71w-common php71w-gd php71w-mbstring php71w-mcrypt php71w-mysqlnd php71w-xml php71w-fpm openssl net-tools wget git curl certbot-nginx postfix nmap vim mailx telnet bind-utils iftop iptraf tcpdump htop iperf gcc nginx-mod-http-image-filter
 
 RUN mkdir /var/www/html -p
 
